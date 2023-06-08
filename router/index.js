@@ -1,7 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const session = require('express-session')
+const session = require('express-session');
+const Controller = require("../controllers/controller");
 
+
+router.use(session({
+    secret: 'ini session amazonk',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { 
+        secure: false,
+        sameSite: true 
+    }
+}))
 
 const isLogin = (req, res, next) => {
     console.log(req.session)
