@@ -1,6 +1,7 @@
 const { where } = require("sequelize");
 let { Category, Product, Wallet, User, Transaction, TransactionDetail } = require("../models");
 const transactiondetail = require("../models/transactiondetail");
+const bcrypt = require('bcryptjs')
 
 class Controller {
   static productAdmin(req, res) {
@@ -162,6 +163,51 @@ class Controller {
       })
       .then(() => res.redirect(`/customers/${id}`))
       .catch((err) => res.send(err));
+  }
+  static renderRegister (req, res) {
+    res.render('registerForm')
+}
+static handlerRegister (req, res) {
+    const {fullName, email, username, password, role} = req.body;
+
+    User.create({fullName, email, username, password, role})
+    .then (() => {
+        res.redirect('/login')
+    })
+    .catch((err) => {
+        res.send(err)
+    })
+}
+static renderLogin (req, res) {
+    const {error} = req.query
+
+    res.render('login', { error })
+}
+static handlerLogin (req, res) {
+    const {username, password} = req.body
+
+    User.findOne({ where: { username } })
+    .then((user) => {
+        if (user) {
+            const isValidPassword = bcrypt.compareSync(password, user.password)
+            if (isValidPassword) {
+                req.session.userId = user.id
+                req.session.role = user.role
+                req.session.username = user.username
+
+                return res.redirect('/')
+            } else {
+                const error =   "invalid password"
+                return res.redirect(`/login?error=${error}`)
+            }
+        } else {
+            const error =   "invalid username"
+            return res.redirect(`/login?error=${error}`)
+        }
+    })
+    .catch((err) => {
+        res.send(err)
+    })
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "amazonk",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pair Project",
   "main": "app.js",
   "dependencies": {
     "abbrev": "^1.1.1",
@@ -12,6 +12,7 @@
     "async": "^3.2.4",
     "at-least-node": "^1.0.0",
     "balanced-match": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "bluebird": "^3.7.2",
     "body-parser": "^1.20.1",
     "brace-expansion": "^1.1.11",
@@ -49,6 +50,7 @@
     "etag": "^1.8.1",
     "event-emitter": "^0.3.5",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "ext": "^1.7.0",
     "filelist": "^1.0.4",
     "finalhandler": "^1.2.0",
