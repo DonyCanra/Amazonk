@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Megawati",
+    "genre": "Female",
+    "email": "megachan@gmail.com",
+    "password": "megawati",
+    "role": "admin"
+  },
+  {
+    "name": "Puan Maharani",
+    "genre": "Female",
+    "email": "puanmutzz@gmail.com",
+    "password": "megawati",
+    "role": "customer"
+  },
+  {
+    "name": "Joko Widodo",
+    "genre": "Male",
+    "email": "jokowidodo@gmail.com",
+    "password": "jokowi",
+    "role": "customer"
+  }
+]
