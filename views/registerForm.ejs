@@ -69,8 +69,17 @@
           <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" required><br>
 
-          <label for="role"><b>Role:</b></label>
-          <input type="role" placeholder="user / admin" name="role" required><br>
+          <p>Role:</p>
+          <input type="radio" id="role" name="role" value="user">
+          <label for="role">user</label><br>
+          <input type="radio" id="role" name="role" value="admin">
+          <label for="role">admin</label><br>
+
+          <p>Gender:</p>
+          <input type="radio" id="gender" name="gender" value="Female">
+          <label for="gender">Female</label><br>
+          <input type="radio" id="gender" name="gender" value="Male">
+          <label for="gender">Male</label><br>
             
           <div class="clearfix">
             <button type="submit" class="signupbtn">Sign Up</button>
